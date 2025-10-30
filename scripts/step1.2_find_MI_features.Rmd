@@ -1,0 +1,97 @@
+---
+title: "R Notebook"
+# output: html_notebook
+---
+
+## Method 2 MTG 6E10, MI 
+lingyi = ["CFI", "AC009654.1", "AL031056.1", "TBC1D3", "AC097658.2", "AC016590.1", "LINC02251", "MIR3681HG", "SHISA6", "AC026341.2", 
+          "HLA-DRB5" ,  "AC091435.2","AC005832.1", "AC022517.1" ,"PRORY",
+          "AC104232.2" ,"TTC16"    ,  "LLGL2"  ,    "SLC35D3"  ,  "TSPEAR-AS1"]
+```{r}
+rm(list = ls()); gc()
+load("/Users/lingyi/Documents/sea-ad/models/final_submission/data/MIs_csv_fraction_supertype_5per_Full_6e10.RData")
+
+# MTG only 
+all_MILists <- all_MILists[21:40]
+
+# for each list, give the ranking 
+for (i in seq(1, length(all_MILists))) {
+  tmp <- all_MILists[[i]]
+  tmp <- seq(from = 1, to = length(tmp))
+  names(tmp) <- names(all_MILists[[i]])
+  all_MILists[[i]] <- tmp
+}
+
+genes <- names(all_MILists[[1]])
+# for each list
+mi_matrix <- sapply(all_MILists, function(x) {
+  x[genes]
+})
+
+# MI_medianranking top5 and negative bottom5
+MI_ranks <- sort(apply(mi_matrix, 1, median), decreasing = F)
+names(MI_ranks)[2:6]
+tail(names(MI_ranks), 5)
+
+
+## For large targets 
+df_MTG <- read.csv("/Users/lingyi/Documents/sea-ad/models/final_submission/data/SEAAD_MTG_RNAseq_DREAM.2025-07-15_fractions.csv")
+# print(y_mtg.index[y_mtg > 6])
+data_MTG <- df_MTG[which(df_MTG$Donor.ID %in% c('H20.33.011', 'H20.33.020', 'H20.33.026', 'H20.33.033', 'H20.33.036',
+       'H20.33.045', 'H21.33.006', 'H21.33.020', 'H21.33.029', 'H21.33.033')), ]
+
+data <- data_MTG[, -(1:20)]
+
+MIs <- getAllMIWz(as.matrix(t(data)), 
+            as.numeric(data_MTG$percent.6e10.positive.area), 
+            negateMI = T, sorting = T)
+names(head(MIs)[1:5])
+names(tail(MIs)[1:5])
+```
+
+## Method 2 A9 AT8, MI
+lingyi = ["EGFR"   ,    "S100A4"   ,  "LINC02397" , "SLC25A48" ,  "AC114296.1", "PKN2-AS1",   "AC025887.2", "AP000829.1" ,"PCED1B"    , "AC010201.3"
+          "AP000941.1" ,"LCP2"    ,   "AL391095.2","AGPAT2"  ,   "IRAK3"  ,
+            "MKRN3" ,     "PRR5L"   ,   "SLC35D2"   , "LINC02817",  "AC104451.2"  ]
+```{r}
+rm(list = ls()); gc()
+load("/Users/lingyi/Documents/sea-ad/models/final_submission/data/MIs_csv_fraction_supertype_5per_Full_AT8.RData")
+
+# A9 only 
+all_MILists <- all_MILists[1:20]
+
+# for each list, give the ranking 
+for (i in seq(1, length(all_MILists))) {
+  tmp <- all_MILists[[i]]
+  tmp <- seq(from = 1, to = length(tmp))
+  names(tmp) <- names(all_MILists[[i]])
+  all_MILists[[i]] <- tmp
+}
+
+genes <- names(all_MILists[[1]])
+# for each list
+mi_matrix <- sapply(all_MILists, function(x) {
+  x[genes]
+})
+
+# MI_medianranking top5 and negative bottom5
+MI_ranks <- sort(apply(mi_matrix, 1, median), decreasing = F)
+names(MI_ranks)[2:6]
+tail(names(MI_ranks), 5)
+
+
+## For large targets 
+df_A9 <- read.csv("/Users/lingyi/Documents/sea-ad/models/final_submission/data/SEAAD_A9_RNAseq_DREAM.2025-07-15_fractions.csv")
+# print(y_a9.index[y_a9 > 4])
+data_A9 <- df_A9[which(df_A9$Donor.ID %in% c('H20.33.018', 'H20.33.020', 'H20.33.026', 'H20.33.033', 'H20.33.037',
+       'H20.33.045', 'H20.33.046', 'H21.33.002', 'H21.33.007', 'H21.33.008',
+       'H21.33.020', 'H21.33.031', 'H21.33.034', 'H21.33.045')), ]
+
+data <- data_A9[, -(1:20)]
+
+MIs <- getAllMIWz(as.matrix(t(data)), 
+            as.numeric(data_A9$percent.AT8.positive.area), 
+            negateMI = T, sorting = T)
+names(head(MIs)[1:5])
+names(tail(MIs)[1:5])
+```
