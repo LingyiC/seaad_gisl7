@@ -22,28 +22,39 @@ The analysis pipeline consists of the following steps:
 3. **`step0.3_generate_fractionMatrix_for_5percentage.py`**
    Generates a fraction matrix for each of the 20 subsampled datasets.
 
-
+4. **`step0.4_compute_gene_pair_coexpression.py`**     
+   **`step0.4_compute_gene_pair_coexpression.sh`**      
+   Calculates cell-type-specific gene pair co-expression matrics using the full set or 4 subsamples of 25% cells (stabilized co-expression).
 
 ### **Step 1A: Feature Selection via Mutual Information (MI)**
 
-4. **`step1.1_csv_fraction_supertype_train_MIs_6e10.R`**
+5. **`step1.1_csv_fraction_supertype_train_MIs_6e10.R`**
    Calculates MI-ranked genes for **6e10** protein levels across the 20 subsampled datasets.
 
-5. **`step1.1_csv_fraction_supertype_train_MIs_AT8.R`**
+6. **`step1.1_csv_fraction_supertype_train_MIs_AT8.R`**
    Calculates MI-ranked genes for **AT8** protein levels across the 20 subsampled datasets.
 
-6. **`step1.2_find_MI_features.Rmd`**
+7. **`step1.2_find_MI_features.Rmd`**
    Integrates MI results and selects the final set of MI-based features used for model training.
 
-### **Step 1B: Feature Selection via Gene Pairs**
+### **Step 1B: Feature Selection for Gene Pairs**
 
+8. **`step1B.1_prepare_donor_splits.py`**        
+   Randomly split the donors into discovery and replication halves for 10 rounds    
+   
+9. **`step1B.2_select_pairs_10rounds.py`**
+   **`step1B.2_select_pairs_10rounds.sh`**        
+   Select gene pairs based on the spearman's correlation between each gene pair's stabilized co-expression and the pathological target.
+    
+10. **`step1B.3_select_final_consensus_pairs.ipynb`**
+   Get the final consensus pair feature set.
 
 ### **Step 2: Model Training**
 
-7. **`step2_final_model_6e10.ipynb`**
+11. **`step2_final_model_6e10.ipynb`**
    Trains the predictive model for **6e10** protein data.
 
-8. **`step2_final_model_AT8.ipynb`**
+12. **`step2_final_model_AT8.ipynb`**
    Trains the predictive model for **AT8** protein data.
 
 
