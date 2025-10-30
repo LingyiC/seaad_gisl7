@@ -96,7 +96,7 @@ os.makedirs(os.path.join(DATA_DIR, f"{chosen_region}_donor_splits"), exist_ok=Tr
 print("\n----------- Using pair features: median 25 per (4 cell splits) -----------")
 
 
-with open(os.path.join(DATA_DIR, f"{chosen_region}_pair_features_LW_median-25per.pkl"), "rb") as f:
+with open(os.path.join(DATA_DIR, f"{chosen_region}_pair_features_LW_median.pkl"), "rb") as f:
      pairs_df = pickle.load(f)
 
 donor_removed = (pairs_df == 0).all(axis=1).sum()
@@ -122,5 +122,5 @@ for r in range(N_ROUNDS):
         y_train = subset_df[f"percent {protein} positive area"]
 
         results_df = compute_assoc(corr_mat, y_train)
-        results_df.to_csv(os.path.join(DATA_DIR, f"{chosen_region}_donor_splits/pairs_LW_median-25per_assoc_{protein}_r{r}.csv"), index=False)
+        results_df.to_csv(os.path.join(DATA_DIR, f"{chosen_region}_donor_splits/pairs_LW_median_assoc_{protein}_r{r}.csv"), index=False)
 
