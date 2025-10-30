@@ -17,7 +17,7 @@ CELLTYPE="${CELLTYPES[$SLURM_ARRAY_TASK_ID]}"
 REGION='MTG'
 #REGION='A9'
 
-python step1.4_select_pair_features_repeated_rounds.py --Subclass "$CELLTYPE" --Region $REGION
+python step1B.2_select_pairs_10rounds.py --Subclass "$CELLTYPE" --Region $REGION
 
 
 #cd results/pair_features
