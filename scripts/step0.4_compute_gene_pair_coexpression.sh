@@ -11,7 +11,7 @@ source activate vcc_env
 conda activate vcc_env
 
 
-CELLTYPES=('OPC' 'Oligodendrocyte' 'Sst' 'L2/3 IT' 'L5/6 NP' 'Pvalb' 'Sncg' 'Vip' 'Lamp5')
+CELLTYPES=('Microglia-PVM' 'Astrocyte' 'OPC' 'Oligodendrocyte' 'Sst' 'L2/3 IT' 'L5/6 NP' 'Pvalb' 'Sncg' 'Vip' 'Lamp5')
 CELLTYPE="${CELLTYPES[$SLURM_ARRAY_TASK_ID]}"
 
 python step0.4_compute_gene_pair_coexpression.py --Subclass "$CELLTYPE"
