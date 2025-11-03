@@ -1,4 +1,4 @@
-# README
+# Submitted Models for SEA-AD DREAM Challenge
 
 This repository contains the workflow and scripts used to generate fraction matrices, perform subsampling, identify MI-ranked features, identify gene pairs, and train predictive models for **6e10** and **AT8** protein in SEA-AD datasets.
 
