@@ -1,12 +1,35 @@
-# Submitted Models for SEA-AD DREAM Challenge
+# Winning Models for SEA-AD DREAM Challenge
 
-This repository contains the workflow and scripts used to generate fraction matrices, perform subsampling, identify MI-ranked features, identify gene pairs, and train predictive models for **6e10** and **AT8** protein in SEA-AD datasets.
-![Alt text](figures/workflow.png)
+🏆 **1st place in Task 1** • 🥈 **2nd place in Task 2**
 
+This repository contains the complete workflow, scripts, and resources used to develop the top-performing models in the SEA-AD DREAM Challenge.
 
-## **Workflow Overview**
+---
 
-The analysis pipeline consists of the following steps:
+## 📋 Challenge Tasks
+
+### Task 1: Disease Staging Prediction
+Use single-cell RNA sequencing data to predict classical disease staging assessments that neuropathologists conduct using histopathological stains across the brain.
+
+### Task 2: Protein Aggregate Quantification
+Use single-cell RNA sequencing data to predict quantitative measures of protein aggregates and cellular stains from immunohistochemical data (6e10 and AT8 proteins).
+
+---
+
+## 🐳 Docker Images
+
+Pre-built Docker containers for reproducible model execution:
+
+- **Task 1**: https://github.com/th86/seaad_task1
+- **Task 2**: https://github.com/th86/seaad_task2
+
+---
+
+## 🔬 Workflow Overview
+
+![Workflow Diagram](figures/workflow.png)
+
+The analysis pipeline consists of the following key steps:
 
 ### **Step 0: Data Preparation**
 
@@ -55,13 +78,29 @@ The analysis pipeline consists of the following steps:
 12. **`step2_final_model_AT8.ipynb`**       
    Trains the predictive model for **AT8** protein data.
 
+---
 
+## 📚 Additional Resources
 
+- **📝 Technical Writeup**: [View detailed methodology and results](https://www.synapse.org/Synapse:syn70755838/wiki/635604)
+- **🏆 Challenge Information**: [SEA-AD DREAM Challenge](https://www.synapse.org/Synapse:syn66496696/wiki/633729/)
 
-## **Dependencies**
+---
 
-The workflow uses the following key environments:
+## 🛠️ Dependencies
+
+The workflow requires the following environments:
 
 * Python ≥ 3.12
 * R ≥ 4.3
 
+---
+
+<p align="center">
+  <img src="figures/columbia_logo.png" alt="Columbia University" height="100"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="figures/nygc_logo.png" alt="New York Genome Center" height="100"/>
+</p>
+<p align="center">
+  <b>Columbia University</b> • <b>New York Genome Center</b>
+</p>
