@@ -1,8 +1,7 @@
-# Winning Models for SEA-AD DREAM Challenge
+# Submitted Models for SEA-AD DREAM Challenge
 
-🏆 **1st place in Task 1** • 🥈 **2nd place in Task 2**
 
-This repository contains the complete workflow, scripts, and resources used to develop the top-performing models in the SEA-AD DREAM Challenge.
+This repository contains the complete workflow, scripts, and resources used to develop the models in the SEA-AD DREAM Challenge.
 
 ---
 
