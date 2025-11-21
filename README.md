@@ -1,7 +1,9 @@
 # Submitted Models for SEA-AD DREAM Challenge
 
 
-This repository contains the complete workflow, scripts, and resources used to develop the models in the SEA-AD DREAM Challenge.
+This repository contains the complete workflow, scripts, and resources used to develop the models in the SEA-AD DREAM Challenge - Predicting Alzheimers Pathology from snRNA-seq Data.
+
+**Summrary:** We developed supervised learning models to predict Alzheimer’s disease-associated neuropathological burden from single-nucleus transcriptomic data, integrating gene expression, co-expression, and donor-level metadata to capture signatures of pathology.
 
 ---
 
