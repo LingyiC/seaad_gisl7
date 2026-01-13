@@ -1,4 +1,4 @@
-# Submitted Models for SEA-AD DREAM Challenge
+# Winning Models for SEA-AD DREAM Challenge
  
 
 This repository contains the complete workflow, scripts, and resources used to develop the models in the [**SEA-AD DREAM Challenge - Predicting Alzheimers Pathology from snRNA-seq Data**](https://www.synapse.org/Synapse:syn66496696/wiki/633729/).
